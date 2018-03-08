@@ -93,7 +93,7 @@ class Cashondelivery extends AbstractTotal
             return [
                 'code' => $this->getCode(),
                 'title' => __('Cash On Delivery'),
-                'value' => $total->getMspCodAmount(),
+                'value' => $total->getMspCodAmount() + $total->getMspCodTaxAmount(),
             ];
         }
 

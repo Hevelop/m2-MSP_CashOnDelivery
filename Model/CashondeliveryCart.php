@@ -88,10 +88,7 @@ class CashondeliveryCart implements CashondeliveryCartInterface
             return '';
         }
 
-        return __('You will be charged by an extra fee of %1 (+%2 taxes)', [
-            $this->priceCurrencyInterface->format($amount),
-            $this->priceCurrencyInterface->format($taxAmount),
-        ]);
+        return __('You will be charged by an extra fee of %1', $this->priceCurrencyInterface->format($amount + $taxAmount));
     }
 
     /**
