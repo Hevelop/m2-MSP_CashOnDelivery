@@ -30,10 +30,12 @@ class Cashondelivery extends AbstractTotal
 
         $invoice->setMspCodAmount($order->getMspCodAmount());
         $invoice->setBaseMspCodAmount($order->getBaseMspCodAmount());
+        $invoice->setMspCodTaxAmount($order->getMspCodTaxAmount());
+        $invoice->setBaseMspCodTaxAmount($order->getBaseMspCodTaxAmount());
 
         if ($this->_canApplyTotal($order)) {
-            $invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getMspCodAmount());
-            $invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getBaseMspCodAmount());
+            $invoice->setGrandTotal($invoice->getGrandTotal() + $invoice->getMspCodAmount() + $invoice->getMspCodTaxAmount());
+            $invoice->setBaseGrandTotal($invoice->getBaseGrandTotal() + $invoice->getBaseMspCodAmount() + $invoice->getBaseMspCodTaxAmount());
         }
 
         return $this;
